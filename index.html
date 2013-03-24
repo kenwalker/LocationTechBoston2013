@@ -46,9 +46,9 @@
 					</a>
 					<p>
 						<a href="http://kenwalker.github.com/">Ken Walker</a> / <a href="http://twitter.com/kwalker">@kwalker</a> / <a href="http://kenwalker.github.com/">kenwalker on GitHub</a>
-						<br>Orion Co-Lead and Orion Dev Lead at IBM Canada
+						<br>Orion Lead and Orion Dev Lead at IBM Canada
 						<br><a href="https://orionhub.org/git/git-repository.html#,cloneGitRepository=git://github.com/kenwalker/LocationTechBoston2013.git">Clone this talk into OrionHub.org from GitHub</a>
-						</p>					
+					</p>					
 				</section>
 
 				<section>
@@ -97,15 +97,14 @@
  						<h3>A JSBeautify Orion Plugin</h3>
         		   		<h4>example snippets of Orion parts</h4>
         		   			<pre class="editor" data-editor-lang="js" data-editor-theme="css/nimbus.css" style="height:400px">
-plugin.html has:
 
+// plugin.html has:
 ...
 &lt;head&gt;
 	&lt;script type="text/javascript" src="plugin.js"&gt;&lt;/script&gt;
 	&lt;script type="text/javascript" src="jsbeautify.js"&gt;&lt;/script&gt;
 	
-jsbeautify.js has:
-
+// jsbeautify.js has:
 ...
 provider.registerServiceProvider(["orion.edit.command", "orion.cm.managedservice"], {
 	updated: function(properties) {
@@ -126,9 +125,90 @@ provider.registerServiceProvider(["orion.edit.command", "orion.cm.managedservice
 					</a>
 				</section>
 
+				<section>
+					<h4>Put it all together...</h4>
+					<p>All the HTML5, CSS3, JavaScript, plugins...</p>
+					<a class="image">
+							<img src="images/orionloginsmall.png" >
+					</a>
+					<p>You get a development platform</p>
+				</section>
+
+				<section>
+					<h4>Orion Navigator</h4>
+					<a class="image">
+							<img src="images/orionnavigator.png" >
+					</a>
+				</section>
+
+				<section>
+					<h4>Orion Editor</h4>
+					<a class="image">
+							<img src="images/orioneditor.png" >
+					</a>
+				</section>
+
+				<section>
+					<h4>Orion Git Repositories</h4>
+					<a class="image">
+							<img src="images/orionrepositories.png" >
+					</a>
+				</section>
+
+				<section>
+					<h4>Orion Git Status with Compare</h4>
+					<a class="image">
+							<img src="images/oriongitstatus.png" >
+					</a>
+				</section>
+
+				<section>
+					<h3>Works on mobile tablets</h3>
+					<p>While Orion works on phones it is better suited to tablets.  Adding a bluetooth keyboard is even better</p>
+					<a class="image">
+							<img src="images/ipadandnexus7.png" >
+					</a>
+					<h4>iPad mini and a Nexus 7</h4>
+				</section>
+								
+				<section>
+					<h3>Install your own Orion Server</h3>
+					<ul>
+						<li>Go to the <a href="http://download.eclipse.org/orion/">Orion Downloads</a> page</li>
+						<li>Get the right server and unzip it</li>
+						<li>Run the Orion executable, make an account, done!</li>
+						<li>Now look at the <a href="http://wiki.eclipse.org/Orion/Server_admin_guide">Server Admin Guide</a>
+						<li>Look at the <a href="http://wiki.eclipse.org/Orion/Getting_Started_with_Orion">Getting Started Guild</a>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Got Node.js?</h2>
+					<code>npm install orion</code>
+					<p>edit orion.conf to set a workspace directory</p>
+					<code>workspace=/home/pi/Workspace/</code>
+					<p><br>Orion shell commands available for Node and npm</p>
+					<a class="image">
+							<img src="images/raspberrypiorion.png" >
+					</a>
+				</section>
+				
+				<section>
+					<h3>You can consume Orion too</h3>
+					<p>Many components of Orion are meant to be individually consumable</p>
+					<p>Leverage our work for your project and if you have suggestions or changes, contribute them back.</p>
+					<p><a href="https://github.com/eclipse/orion.client/blob/master/bundles/org.eclipse.orion.client.core/web/orion/Deferred.js" title="Orion Deferred Implementation" target="_blank">Orion Deferred</a>, 
+	<a href="https://github.com/eclipse/orion.client/blob/master/bundles/org.eclipse.orion.client.core/web/orion/HTMLTemplates-shim.js" title="Orion HTML Templates Shim" target="_blank">Orion HTML Templates Shim</a>, 
+	<a href="https://github.com/eclipse/orion.client/blob/master/bundles/org.eclipse.orion.client.core/web/orion/URITemplate.js" title="Orion URI Templates" target="_blank">Orion URI Templates</a>, 
+<a href="https://github.com/eclipse/orion.client/blob/master/bundles/org.eclipse.orion.client.core/web/orion/URL-shim.js" title="Orion URL Shim" target="_blank">Orion URL Shim</a>, 
+<a href="https://github.com/eclipse/orion.client/blob/master/bundles/org.eclipse.orion.client.core/web/orion/pluginregistry.js" title="Orion Plugin Registry" target="_blank">Orion Plugin Registry</a>, 
+<a href="https://github.com/eclipse/orion.client/blob/master/bundles/org.eclipse.orion.client.core/web/orion/serviceregistry.js" title="Orion Service Registry" target="_blank">Orion Service Registry</a>, 
+<a href="https://github.com/eclipse/orion.client/blob/master/bundles/org.eclipse.orion.client.core/web/orion/xhr.js" title="Orion XHR Implementation" target="_blank">Orion XHR Implementation</a>, 
+<a href="https://github.com/mamacdon/deferred-fs" title="Orion Node Deferred File System" target="_blank">Orion Node Deferred File System</a></p>
+				</section>
 
  				<section>
-        		   		<h4>Minified Client Side Editor - easily consumable</h4>
+        		   		<h4>Minified Client Side Editor - Just the editor</h4>
         		   			<pre class="editor" data-editor-lang="js" data-editor-theme="css/nimbus.css" style="height:400px">
 function Deferred() {
 	var result, state, listeners = [],
@@ -162,46 +242,44 @@ function Deferred() {
 				</section>
 
 				<section>
+					<h2>Client side compare</h2>
+					<p>Complete JavaScript client side compare both inline and unified views.</p>
+					<a class="image">
+							<img src="images/comparealone.png" >
+					</a>
 				</section>
 				
 				<section>
+				<h2>Community</h2>
+				<p>Orion is developed by contributors from IBM, VMWare, Mozilla, Google, HP, individuals (students), YOU!</p>
+				<a class="image">
+					<img src="images/ohlohorion.png" >
+				</a>
+				</section>
+				
+				<section>
+				<h3>What can we do this year?</h3>
+				<p>IBM Research and University Collaboration on <a href="http://domino.watson.ibm.com/library/CyberDig.nsf/1e4115aea78b6e7c85256b360066f0d4/e6a89d6e32bfa60385257b33006ab8f5!OpenDocument">Content Assist</a>, 
+				OSLC integations, Server Extensions for CloudFoundry VMC, We need more deployment plugins</p>
+				<p>Warsaw University project on a JSGit implementation for
+				Node.js, Accessibility, Translations and NLS, File System plugins (Chrome, HTML5, WebDav, S3, etc.)</p>
+				<p>Embedded development using Orion on Node (Lua, Node, Scripting) - the Orion Shell is extensible</p>
 				</section>
 
 				<section>
+					<h2>Find out more</h2>
+					<p>Read our blog at <a href="http://planetorion.org">Planet Orion</a></p>
+					<p>Check out the <a href="http://wiki.eclipse.org/Orion/Buzz">Orion BUZZ</a></p>
+					<p>Lots of information in the <a href="http://wiki.eclipse.org/Orion">Orion Wiki</a></p>
+					<p>Follow <a href="https://twitter.com/orionhub">Orion on Twitter</a></p>
+					<p>Create an account and try it at <a href="https://orionhub.org">OrionHub</a></p>
+					<p>
+						<a href="http://kenwalker.github.com/">Ken Walker</a> / <a href="http://twitter.com/kwalker">@kwalker</a> / <a href="http://kenwalker.github.com/">kenwalker on GitHub</a>
+						<br>Orion Lead and Orion Dev Lead at IBM Canada
+						<br><a href="https://orionhub.org/git/git-repository.html#,cloneGitRepository=git://github.com/kenwalker/LocationTechBoston2013.git">Clone this talk into OrionHub.org from GitHub</a>
+					</p>					
 				</section>
 
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
-
-				<section>
-				</section>
 		</div>
 		<div class="topBanner">
 			<img src="images/orionsmall.png" height="50" width="50" style="float:left">
