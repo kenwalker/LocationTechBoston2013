@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ignite - LocationTech</title>
+
+		<meta name="description" content="A 5 minute Ignight Talk about Orion">
+		<meta name="author" content="Ken Walker">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/orion.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>The Orion Project</h2>
+					<h3>A brief walkthrough in 5 minutes</h3>
+					<h4>Ignite LocationTech Boston - March 25, 2013</h4>
+					<a class="image">
+							<img width="300" height="300" src="images/KenWalker300x300.png" >
+					</a>
+					<p>
+						<a href="http://kenwalker.github.com/">Ken Walker</a> / <a href="http://twitter.com/kwalker">@kwalker</a> / <a href="http://kenwalker.github.com/">kenwalker on GitHub</a>
+						<br>Orion Co-Lead and Orion Dev Lead at IBM Canada
+						<br><a href="https://orionhub.org/git/git-repository.html#,cloneGitRepository=git://github.com/kenwalker/LocationTechBoston2013.git">Clone this talk into OrionHub.org from GitHub</a>
+						</p>					
+				</section>
+
+				<section>
+				<h3>What is the purpose of Orion?</h3>
+				<br>
+				<br>
+				<blockquote>Open Source Platform for Cloud Based Development</blockquote>
+				<br><br>
+				All open source<br>At Eclipse and mirrored at GitHub<br>
+				<a href="http://wiki.eclipse.org/Orion">Orion Wiki Page</a>
+				</section>
+
+				<section>
+				<h3>Focus on...</h3>
+				<br>
+				<ul>
+				<li>Embracing modern browser capabilities</li>
+				<li>A platform that’s extensible</li>
+				<li>Components that are consumable</li>
+				<li>Cross-site workflows & integration</li>
+				<li>A tool suite that does what is needed</li>
+				</ul>
+				</section>
+
+
+				<section>
+				<h3>Orion Pages and Plugins</h3>
+				<br>
+				<ul>
+				<li>Orion provides many pages by default</li>
+				<li>Provides necessary functionality for developers</li>
+				<li>Go from creating, editing, self hosting to deployment and source code control</li>
+				<li>Extensibility is what sets Orion apart</li>
+				</ul>
+				</section>
+
+				<section>
+					<h3>How we achieve plugability</h3>
+					<a class="image">
+							<img src="images/webplugins.png" >
+					</a>
+				</section>
+
+
+ 				<section>
+ 						<h3>A JSBeautify Orion Plugin</h3>
+        		   		<h4>example snippets of Orion parts</h4>
+        		   			<pre class="editor" data-editor-lang="js" data-editor-theme="css/nimbus.css" style="height:400px">
+plugin.html has:
+
+...
+&lt;head&gt;
+	&lt;script type="text/javascript" src="plugin.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="jsbeautify.js"&gt;&lt;/script&gt;
+	
+jsbeautify.js has:
+
+...
+provider.registerServiceProvider(["orion.edit.command", "orion.cm.managedservice"], {
+	updated: function(properties) {
+	run: function(selectedText, text, selection) {
+		var toFormat;
+		var selectionEmpty = selection.start === selection.end;
+		if (selectionEmpty) {
+			toFormat = text;
+</pre>
+				</section>
+
+				<section>
+					<h3>What's your point, Ken?</h3>
+					<p>Plugins can extend the functionality of Orion in the Browser dynamically, without any Server side changes.
+					The plugins themselves can come from any site, not just the server Orion is hosted from.</p>
+					<a class="image">
+							<img src="images/jsbeautifyexample.png" >
+					</a>
+				</section>
+
+
+ 				<section>
+        		   		<h4>Minified Client Side Editor - easily consumable</h4>
+        		   			<pre class="editor" data-editor-lang="js" data-editor-theme="css/nimbus.css" style="height:400px">
+function Deferred() {
+	var result, state, listeners = [],
+		_this = this;
+
+	function notify() {
+		var listener;
+		while ((listener = listeners.shift())) {
+			var deferred = listener.deferred;
+			var methodName = state === "resolved" ? "resolve" : "reject"; //$NON-NLS-0$ //$NON-NLS-1$ //$NON-NLS-2$
+			if (typeof listener[methodName] === "function") { //$NON-NLS-0$
+				try {
+					var listenerResult = listener[methodName](result);
+					if (listenerResult &amp;&amp; typeof listenerResult.then === "function") { //$NON-NLS-0$
+						deferred.cancel = listenerResult.cancel || noop;
+						listenerResult.then(noReturn(deferred.resolve), noReturn(deferred.reject), deferred.progress);
+					} else {
+						deferred.resolve(listenerResult);
+					}
+				} catch (e) {
+					deferred.reject(e);
+				}
+			} else {
+				deferred[methodName](result);
+			}
+		}
+	}
+</pre>
+				If you want to generate a Snippet of code <br>for a Blog or Web Post<br>
+				Check out the <a href="http://kenwalker.github.com/snippet/Snippet.html">Snippet Orion Plugin</a>
+				</section>
+
+				<section>
+				</section>
+				
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+
+				<section>
+				</section>
+		</div>
+		<div class="topBanner">
+			<img src="images/orionsmall.png" height="50" width="50" style="float:left">
+			<img src="images/codeeverywhere.png" style="float:right">
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+//				autoSlide: 10000,
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				progress: true,
+
+				theme: 'orion', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'js/built-editor.min.js', async: true, callback: function() {require(["orion/editor/edit"], function(edit) {
+								editor = edit({className: "editor"});
+								document.addEventListener("transitionend", function(){editor[0].getTextView().update(true);});
+								document.addEventListener("webkitTransitionEnd", function(){editor[0].getTextView().update(true);});
+							});}
+					} 
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
