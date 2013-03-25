@@ -1,5 +1,5 @@
-<!doctype html>
 <html lang="en">
+<!doctype html>
 
 	<head>
 		<meta charset="utf-8">
@@ -297,6 +297,7 @@ function Deferred() {
 			// Put the following config option to advance slides every 15 seconds
 //				autoSlide: 15000,
 			Reveal.initialize({
+				autoSlide: 15000,
 				controls: true,
 				progress: true,
 				history: true,
@@ -314,12 +315,24 @@ function Deferred() {
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'js/built-editor.min.js', async: true, callback: function() {require(["orion/editor/edit"], function(edit) {
-								editor = edit({className: "editor"});
-								document.addEventListener("transitionend", function(){editor[0].getTextView().update(true);});
-								document.addEventListener("webkitTransitionEnd", function(){editor[0].getTextView().update(true);});
-							});}
-					} 
+					
+					{ src: 'js/built-editor-fix.js', async: true, callback: function()
+							{
+							    require(["orion/editor/edit"], function(edit) {
+							        var editors = edit({
+							            className: "editor"
+							        });
+							        function updateEditor() {							
+							            for (var i = 0; i < editors.length; i++) {
+							                editors[i].getTextView().update(true);
+							            }
+							        }
+							        document.addEventListener("transitionend", updateEditor);
+							        document.addEventListener("webkitTransitionEnd", updateEditor);
+							    });
+							}
+					}					
+					
 					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
 					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
